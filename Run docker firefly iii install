@@ -1,0 +1,23 @@
+--------------------------------------------Straight from Docker Hub-------------------------------------------------
+The instructions in this section will help you set up a single container.
+
+With these commands you create one container: the container for Firefly III itself. If you do this, you 
+should already have a MySQL or a Postgres database running somewhere. Without such a database container, 
+Firefly III will not work.
+
+1) Create your mysql database first.
+
+2) Run docker installation
+
+
+docker run -d \
+-v firefly_iii_upload:/var/www/html/storage/upload \
+-p 8070:8080 \
+-e APP_KEY=adget5fgrhvgftryufhdg4elgkbnhuge \
+-e DB_HOST=192.168.0.100 \
+-e DB_PORT=3306 \
+-e DB_CONNECTION=mysql \
+-e DB_DATABASE=firefly \
+-e DB_USERNAME=root \
+-e DB_PASSWORD=mypassword \
+fireflyiii/core:latest
